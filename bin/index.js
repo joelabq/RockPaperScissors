@@ -15,15 +15,8 @@ class Move  {
         if(computerMove === userMove){ //Both moves a tie? If so.. TIE
             return "~TIE!~"
         }
-         
-        else if(moveTypes[userMove] === computerMove)  { //Check to see if users move beats computer move
-            return "~Player Wins.~"
-        }
         
-        else if(moveTypes[computerMove] === userMove) { //if not, check to see if computermove beats user move
-            return "~Computer Wins.~"
-            
-        }
+       return (moveTypes[userMove] === computerMove) ? "~Player Wins.~" :  "~Computer Wins.~" //Check to see if users move beats computer move the declare the winner
        
     }
     
