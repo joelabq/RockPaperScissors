@@ -17,16 +17,14 @@ class Move  {
         }
         
         else if(moveTypes[userMove] === computerMove)  {
-            return "~Computer Wins.~"
+            return "~Player Wins.~"
         }
         
         else if(moveTypes[computerMove] === userMove) { 
             return "~Computer Wins.~"
             
         }
-        else {
-            return "~Player Wins.~"
-        }
+       
     }
     
     generateComputerMove(){
@@ -35,7 +33,7 @@ class Move  {
             
                 case 1: return 'rock'
                 case 2: return 'paper'
-                case 3: return 'scissor'
+                case 3: return 'scissors'
           }
         }
     }
