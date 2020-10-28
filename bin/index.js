@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 var argv = require('yargs/yargs')(process.argv.slice(2)).argv;
 
-moveTypes = {
+moveTypes = { //Key is move, value is what beats the move
     'rock' : 'scissors',
     'paper' : 'rock',
     'scissors' : 'paper'
@@ -12,22 +12,22 @@ class Move  {
 
     whoWon(computerMove,userMove){
         
-        if(computerMove === userMove){ //Both moves a tie?
+        if(computerMove === userMove){ //Both moves a tie? If so.. TIE
             return "~TIE!~"
         }
-        
-        else if(moveTypes[userMove] === computerMove)  {
+         
+        else if(moveTypes[userMove] === computerMove)  { //Check to see if users move beats computer move
             return "~Player Wins.~"
         }
         
-        else if(moveTypes[computerMove] === userMove) { 
+        else if(moveTypes[computerMove] === userMove) { //if not, check to see if computermove beats user move
             return "~Computer Wins.~"
             
         }
        
     }
     
-    generateComputerMove(){
+    generateComputerMove(){ //This returns what the computers move is...
         
             switch(Math.floor(Math.random() * 3) + 1) { //Floor rounds down, 0.385475 would be zero, so multiply by 3 (the max) then add 1 to shift from starter of zero to one
             
@@ -42,19 +42,20 @@ class Game  {
     
     constructor(userMove){
       
-        
         this.game = new Move()
         this.computersMove = this.game.generateComputerMove()
-        console.log(`Player plays ${argv.move}!\nComputer plays ${this.computersMove}!`)
+        console.log(`Player plays ${userMove}!\nComputer plays ${this.computersMove}!`) 
         
-        console.log(this.game.whoWon(this.computersMove,argv.move))
+        console.log(this.game.whoWon(this.computersMove,userMove)) 
            
         }
     }
 
-if (moveTypes[argv.move]){
+    const userMove = argv.move.toLowerCase(); //Normalize input
+
+if (moveTypes[userMove]){ //Check for 
     console.log("Playing a game of Roshambo against the computer.")   
-    var newGame = new Game(argv.move)
+    var newGame = new Game(userMove)
     
  }
 else {
