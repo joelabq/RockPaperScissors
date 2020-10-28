@@ -12,11 +12,7 @@ class Move  {
 
     whoWon(computerMove,userMove){
         
-        if(computerMove === userMove){ //Both moves a tie? If so.. TIE
-            return "~TIE!~"
-        }
-        
-       return (moveTypes[userMove] === computerMove) ? "~Player Wins.~" :  "~Computer Wins.~" //Check to see if users move beats computer move the declare the winner
+        return (computerMove === userMove) ? "-TIE." : ((moveTypes[userMove] === computerMove) ? "~Player Wins.~" :  "~Computer Wins.~") //Check to see if users move beats computer move the declare the winner
        
     }
     
@@ -45,7 +41,7 @@ class Game  {
         }
     }
 
-    const userMove = argv.move.toLowerCase(); //Normalize input
+const userMove = argv.move.toLowerCase(); //Normalize input
 
 if (moveTypes[userMove]){ //Check for valid inputs on the command line
     console.log("Playing a game of Roshambo against the computer.")   
