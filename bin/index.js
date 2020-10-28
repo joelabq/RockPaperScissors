@@ -35,24 +35,25 @@ class Game  {
     
     constructor(userMove){
       
-        this.game = new Move()
-        this.computersMove = this.game.generateComputerMove()
-        console.log(`Player plays ${userMove}!\nComputer plays ${this.computersMove}!`) 
+        this.game = new Move() //new move for the game
+        this.computersMove = this.game.generateComputerMove() //Dependacy injection
         
-        console.log(this.game.whoWon(this.computersMove,userMove)) 
+        console.log(`Player plays ${userMove}!\nComputer plays ${this.computersMove}!`) 
+        //Let the game begin
+        console.log(this.game.whoWon(this.computersMove,userMove)) //Declare winner
            
         }
     }
 
     const userMove = argv.move.toLowerCase(); //Normalize input
 
-if (moveTypes[userMove]){ //Check for 
+if (moveTypes[userMove]){ //Check for valid inputs on the command line
     console.log("Playing a game of Roshambo against the computer.")   
     var newGame = new Game(userMove)
     
  }
 else {
                
-   console.log("Please play the game right....Moves: "+Object.keys(moveTypes))
+   console.log(`Please play the game right....use --move: with the following options: ${Object.keys(moveTypes)}`)
    return;
 }
