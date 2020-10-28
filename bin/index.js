@@ -12,7 +12,7 @@ class Move  {
 
     whoWon(computerMove,userMove){
         
-        if(computerMove === userMove){
+        if(computerMove === userMove){ //Both moves a tie?
             return "~TIE!~"
         }
         
@@ -29,7 +29,7 @@ class Move  {
     
     generateComputerMove(){
         
-            switch(Math.floor(Math.random() * (4 - 1) ) + 1) {
+            switch(Math.floor(Math.random() * 3) + 1) { //Floor rounds down, 0.385475 would be zero, so multiply by 3 (the max) then add 1 to shift from starter of zero to one
             
                 case 1: return 'rock'
                 case 2: return 'paper'
