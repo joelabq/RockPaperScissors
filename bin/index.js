@@ -16,19 +16,22 @@ class Move  {
             return "~TIE!~"
         }
         
-        else if(moveTypes[userMove] !== computerMove)  {
+        else if(moveTypes[userMove] === computerMove)  {
             return "~Computer Wins.~"
         }
         
-        else { 
+        else if(moveTypes[computerMove] === userMove) { 
+            return "~Computer Wins.~"
+            
+        }
+        else {
             return "~Player Wins.~"
         }
-        
     }
     
     generateComputerMove(){
         
-            switch(Math.floor(Math.random() * (3 - 1) ) + 1) {
+            switch(Math.floor(Math.random() * (4 - 1) ) + 1) {
             
                 case 1: return 'rock'
                 case 2: return 'paper'
